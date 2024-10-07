@@ -1,0 +1,2 @@
+cost float
+index int
