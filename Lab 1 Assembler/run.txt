@@ -1,0 +1,4 @@
+Initial files main.c and source.asm
+
+gcc -o assembler main.c
+.\assembler source.asm output.obj

@@ -1,0 +1,4 @@
+flex lex.l
+bison -d parser.y
+gcc parser.tab.c lex.yy.c -o parser.exe
+Get-Content test.c | .\parser.exe
