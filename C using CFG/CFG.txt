@@ -1,0 +1,81 @@
+1.  Program   -> Decl Program
+               | Func Program
+               | ε
+
+2.  Decl      -> Type id ;
+               | Type id = Expr ;
+
+3.  Type      -> int
+               | float
+               | void
+
+4.  Func      -> Type id ( ParamList ) { StmtList }
+
+5.  ParamList -> Param
+               | Param , ParamList
+               | ε
+
+6.  Param     -> Type id
+
+7.  StmtList  -> Stmt StmtList
+               | ε
+
+8.  Stmt      -> Decl
+               | Expr ;
+               | return Expr ;
+               | if ( Cond ) Stmt
+               | if ( Cond ) Stmt else Stmt
+               | while ( Cond ) Stmt
+               | for ( Expr ; Cond ; Expr ) Stmt
+               | { StmtList }
+
+9.  Cond      -> Expr == Expr
+               | Expr != Expr
+               | Expr < Expr
+               | Expr > Expr
+               | Expr <= Expr
+               | Expr >= Expr
+               | Expr && Expr
+               | Expr || Expr
+
+10. Expr      -> id
+               | num
+               | id = Expr
+               | Expr + Expr
+               | Expr - Expr
+               | Expr * Expr
+               | Expr / Expr
+               | ( Expr )
+
+
+Consider the following simple C program snippet:
+
+int main() {
+    int a = 10;
+    if (a > 5) {
+        a = a + 1;
+    }
+    return a;
+}
+
+The derivation of this program using the CFG would proceed as follows:
+
+Program -> Func Program
+Func -> int main ( ParamList ) { StmtList }
+ParamList -> ε
+StmtList -> Decl StmtList
+Decl -> int a = Expr ;
+Expr -> 10
+StmtList -> if ( Cond ) Stmt StmtList
+Cond -> Expr > Expr
+Expr -> a
+Expr -> 5
+Stmt -> { StmtList }
+StmtList -> Expr ; StmtList
+Expr -> a = Expr
+Expr -> Expr + Expr
+Expr -> a
+Expr -> 1
+StmtList -> return Expr ;
+Expr -> a
+StmtList -> ε
