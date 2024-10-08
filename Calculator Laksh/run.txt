@@ -4,4 +4,4 @@ flex cal.l
 
 gcc lex.yy.c cl.tab.c -w
 
-a.exe
+.\a.exe

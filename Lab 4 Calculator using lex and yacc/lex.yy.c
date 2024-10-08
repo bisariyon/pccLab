@@ -362,12 +362,12 @@ static char *yy_last_accepting_cpos;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "calc.l"
+#line 1 ".\\calc.l"
 #define INITIAL 0
-#line 2 "calc.l"
-    #include "calc.tab.h"   // Bison-generated header file
-    #include <stdlib.h>     // For atoi()
-    void yyerror(char *);   // Error function
+#line 3 ".\\calc.l"
+    #include "calc.tab.h"
+    #include <stdlib.h>
+    void yyerror(char *);
 #line 372 "lex.yy.c"
 
 /* Macros after this point can all be overridden by user definitions in
@@ -519,7 +519,7 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
 
-#line 7 "calc.l"
+#line 8 ".\\calc.l"
 
 
 #line 526 "lex.yy.c"
@@ -607,38 +607,38 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 9 "calc.l"
+#line 10 ".\\calc.l"
 {
-                yylval = *yytext - 'a';   // Store variable index in yylval
-                return VARIABLE;          // Return VARIABLE token
-            }
+                yylval = *yytext - 'a';
+                return VARIABLE;
+                }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 14 "calc.l"
+#line 15 ".\\calc.l"
 {
-                yylval = atoi(yytext);    // Convert string to integer
-                return INTEGER;           // Return INTEGER token
+                yylval = atoi(yytext);
+                return INTEGER;
             }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 19 "calc.l"
-{ return *yytext; }       // Return single-character operators or newline
+#line 20 ".\\calc.l"
+{ return *yytext; }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 21 "calc.l"
-;       /* Skip whitespace */
+#line 22 ".\\calc.l"
+;       /* skip whitespace */
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 23 "calc.l"
-yyerror("Unknown character");  // Handle unknown characters
+#line 24 ".\\calc.l"
+yyerror("Unknown character");
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 25 "calc.l"
+#line 26 ".\\calc.l"
 ECHO;
 	YY_BREAK
 #line 645 "lex.yy.c"
@@ -1527,9 +1527,9 @@ int main()
 	return 0;
 	}
 #endif
-#line 25 "calc.l"
+#line 26 ".\\calc.l"
 
 
 int yywrap(void) {
-    return 1;  // Indicates end of input
+    return 1;
 }
